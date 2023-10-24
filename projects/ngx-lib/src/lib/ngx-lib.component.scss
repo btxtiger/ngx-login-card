@@ -1,0 +1,122 @@
+/**
+ * Sorting Checklist for @apply in Tailwind CSS
+ *
+ * 1. Position & Layout
+ * 2. Dimensions
+ * 3. Typography
+ * 4. Colors
+ * 5. Appearance
+ * 6. Transitions & Animations
+ * 7. Pseudo-classes
+ */
+
+ngx-login-card {
+   @import '../theme/tailwind-prod.scss';
+}
+
+.ngx-login-card {
+   --ngx-login-card--primary: rgb(229, 163, 22);
+   --ngx-login-card--primary-shade: rgba(229, 163, 22, 0.5);
+
+   @apply relative flex font-sans;
+   @apply w-full max-w-4xl;
+
+   @apply rounded-2xl shadow-2xl;
+
+   @apply border border-solid border-gray-200 dark:border-gray-700;
+   @apply bg-white/50 backdrop-blur-xl dark:bg-gray-900/50;
+
+   // Highlighting Shine
+   &::before {
+      @apply absolute mx-auto h-[1px] w-3/4;
+      @apply left-0 right-0 top-[-1px];
+
+      content: '';
+      background-image: linear-gradient(to right, rgb(229, 231, 235), var(--ngx-login-card--primary), rgb(229, 231, 235));
+   }
+
+   &__section {
+      &:first-child {
+         @apply rounded-bl-2xl rounded-tl-2xl;
+      }
+
+      &:last-child {
+         @apply rounded-br-2xl rounded-tr-2xl;
+      }
+
+      &-login {
+         @apply flex-1 basis-1/2;
+         @apply w-full p-8;
+         @apply min-h-[300px];
+      }
+
+      &-image {
+         @apply w-full flex-1 basis-1/2;
+         @apply bg-[var(--ngx-login-card--primary)] bg-cover bg-center opacity-50;
+         @apply hidden sm:block;
+         @apply min-h-[300px];
+         background-image: radial-gradient(circle, rgb(229, 231, 235), var(--ngx-login-card--primary), rgb(229, 231, 235));
+         //background-image: url(https://images.unsplash.com/photo-1469389335181-2198b4caa734?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8bWFjaGluZXx8fHx8fDE2OTgxODgyMDM&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080);
+         //opacity: 1;
+      }
+   }
+
+   &__form-branding {
+      @apply mb-4 flex w-full;
+      @apply justify-center gap-4;
+   }
+
+   &__form-title {
+      @apply mb-4 text-center text-2xl;
+      @apply font-bold;
+   }
+
+   &__form-field {
+      @apply mb-6 text-left;
+
+      &-label {
+         @apply mb-2 block text-sm;
+         @apply font-medium text-gray-900 dark:text-white;
+      }
+
+      &-input {
+         @apply mb-2 block w-full leading-6;
+
+         @apply bg-white dark:bg-[#11191f];
+         @apply border border-gray-300 dark:border-gray-600;
+         @apply rounded-md px-3 py-2;
+
+         @apply outline-none focus:border-[var(--ngx-login-card--primary)];
+         @apply focus:ring-1 focus:ring-[var(--ngx-login-card--primary)];
+
+         @apply disabled:cursor-not-allowed disabled:border-gray-400 disabled:bg-gray-200;
+      }
+
+      &-button {
+         @apply mx-auto w-full font-sans text-xs font-bold uppercase;
+
+         @apply rounded-lg border border-transparent;
+         @apply bg-[var(--ngx-login-card--primary)] text-white dark:text-black;
+         @apply px-4 py-2;
+
+         @apply shadow-md shadow-[var(--ngx-login-card--primary-shade)];
+         @apply transition-all duration-200;
+
+         @apply hover:brightness-90 hover:shadow-lg hover:shadow-[var(--ngx-login-card--primary-shade)];
+
+         @apply active:opacity-[0.7] active:shadow-none;
+         @apply active:ring-1 active:ring-inset active:ring-white active:ring-offset-1;
+
+         @apply disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none;
+      }
+   }
+}
+
+.dark .ngx-login-card {
+   --ngx-login-card--primary: rgba(239, 229, 25);
+   --ngx-login-card--primary-shade: rgba(239, 229, 25, 0.2);
+
+   &::before {
+      background-image: linear-gradient(to right, rgb(55, 65, 81), var(--ngx-login-card--primary), rgb(55, 65, 81));
+   }
+}

@@ -1,0 +1,14 @@
+body {
+   font-family: Helvetica, Arial, sans-serif;
+   background-color: var(--mat-sidenav-content-background-color);
+   color: var(--mat-sidenav-container-text-color);
+   min-height: 100vh;
+   min-width: 100vw;
+   background-size: cover;
+   background-position: center;
+   background-image: radial-gradient(circle at top, #f6e3b0,#fff 50%);
+
+   &.dark {
+      background: radial-gradient(circle at top, #857404,#1f2937,#111827 100%);
+   }
+}
