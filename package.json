@@ -8,9 +8,9 @@
       "best-practice",
       "Angular Library"
    ],
-   "homepage": "https://github.com/btxtiger/angular-library-skeleton#readme",
+   "homepage": "https://github.com/btxtiger/ngx-login-card#readme",
    "bugs": {
-      "url": "https://github.com/btxtiger/angular-library-skeleton/issues"
+      "url": "https://github.com/btxtiger/ngx-login-card/issues"
    },
    "repository": {
       "type": "git",
@@ -46,10 +46,8 @@
       "@angular/platform-browser": "^16.2.6",
       "@angular/platform-browser-dynamic": "^16.2.6",
       "@angular/router": "^16.2.6",
-      "@material/web": "^1.0.1",
       "@mdi/js": "^7.2.96",
       "@ngx-pwa/local-storage": "^16.3.0",
-      "@picocss/pico": "^1.5.10",
       "await-to-js": "^3.0.0",
       "bootstrap": "^5.3.2",
       "change-case-all": "^1.0.15",
@@ -59,7 +57,6 @@
       "ngx-md-icon": "^1.1.24",
       "ngx-modern-alerts": "^0.2.13",
       "normalize.css": "^8.0.1",
-      "prettier-plugin-jsdoc": "^1.0.2",
       "rxjs": "~7.8.1",
       "tailwindscss": "^0.3.0",
       "tslib": "^2.3.0",
@@ -95,6 +92,7 @@
       "postcss-cli": "^10.1.0",
       "postcss-scss": "^4.0.8",
       "prettier": "^3.0.3",
+      "prettier-plugin-jsdoc": "^1.0.2",
       "prettier-plugin-organize-imports": "^3.2.3",
       "prettier-plugin-packagejson": "^2.4.5",
       "prettier-plugin-style-order": "^0.2.2",
