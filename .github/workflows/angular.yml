@@ -12,12 +12,13 @@ jobs:
             uses: actions/setup-node@v3
             with:
                node-version: 'lts/*'
+               registry-url: 'https://registry.npmjs.org'
 
          -  name: Print Firefox version
             run: firefox --version
 
          -  name: Install dependencies
-            run: npm install
+            run: npm ci
 
          -  name: Build
             run: npm run build:demo
