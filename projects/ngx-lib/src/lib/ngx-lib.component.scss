@@ -91,7 +91,7 @@ ngx-login-card {
          @apply rounded-md px-3 py-2;
 
          @apply outline-none focus:border-[var(--ngx-login-card--primary)];
-         @apply focus:ring-1 focus:ring-[var(--ngx-login-card--primary)];
+         @apply focus:ring-1 focus:ring-inset focus:ring-[var(--ngx-login-card--primary)];
 
          @apply disabled:cursor-not-allowed disabled:opacity-50;
       }
