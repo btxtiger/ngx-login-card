@@ -11,7 +11,8 @@
  */
 
 ngx-login-card {
-   @import '../theme/tailwind-prod.scss';
+   @import '../theme/tailwind-base-3.3.3';
+   @import '../theme/tailwind-prod';
 }
 
 .ngx-login-card {
