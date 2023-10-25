@@ -97,7 +97,7 @@ ngx-login-card {
 
          @apply rounded-lg border border-transparent;
          @apply bg-[var(--ngx-login-card--primary)] text-white dark:text-black;
-         @apply px-4 py-2;
+         @apply px-4 py-2.5;
 
          @apply shadow-md shadow-[var(--ngx-login-card--primary-shade)];
          @apply transition-all duration-200;

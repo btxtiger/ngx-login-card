@@ -25,10 +25,10 @@ class TextContent {
    selector: 'ngx-login-card',
    templateUrl: './ngx-lib.component.html',
    styleUrls: ['./ngx-lib.component.scss'],
-   standalone: true,
-   encapsulation: ViewEncapsulation.None,
    imports: [NgIf, NgClass, ReactiveFormsModule, NgForOf, NgStyle],
    changeDetection: ChangeDetectionStrategy.OnPush,
+   encapsulation: ViewEncapsulation.None,
+   standalone: true,
 })
 export class NgxLibComponent implements OnInit, OnChanges {
    @HostBinding()
