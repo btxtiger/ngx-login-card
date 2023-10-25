@@ -28,7 +28,7 @@
       "lint": "ng lint",
       "ng": "ng",
       "prettier-format": "prettier --log-level warn --write \"./{src,projects}/**/*.{ts,html,js,scss,json}\"",
-      "publish": "npm run build:demo && npm run build:lib && cd dist/ngx-lib && npm publish",
+      "publish": "npm run build:lib && cd dist/ngx-lib && npm publish",
       "start": "ng serve",
       "start:lazy": "ng serve --live-reload=false",
       "test": "ng test",

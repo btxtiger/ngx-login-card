@@ -1,4 +1,4 @@
-name: Angular Tests with FirefoxHeadless
+name: "Angular Workflow: Build, Test, Publish"
 
 on: [ push, pull_request ]
 
@@ -33,3 +33,9 @@ jobs:
                git add .
                git diff-index --quiet HEAD || git commit -m "Automatically built demo" || exit 0
                git push
+
+         -  name: Publish npm package
+            if: github.ref == 'refs/heads/main'
+            run: npm run publish
+            env:
+               NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

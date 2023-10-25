@@ -121,7 +121,9 @@
                "builder": "@angular-devkit/build-angular:karma",
                "options": {
                   "tsConfig": "projects/ngx-lib/tsconfig.spec.json",
-                  "polyfills": ["zone.js", "zone.js/testing"]
+                  "polyfills": ["zone.js", "zone.js/testing"],
+                  "inlineStyleLanguage": "scss",
+                  "karmaConfig": "karma.conf.js"
                }
             }
          }

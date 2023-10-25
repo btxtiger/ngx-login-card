@@ -8,7 +8,7 @@ describe('NgxLibComponent', () => {
 
    beforeEach(() => {
       TestBed.configureTestingModule({
-         declarations: [NgxLibComponent],
+         imports: [NgxLibComponent],
       });
       fixture = TestBed.createComponent(NgxLibComponent);
       component = fixture.componentInstance;
