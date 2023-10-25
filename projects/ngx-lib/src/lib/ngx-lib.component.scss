@@ -21,11 +21,11 @@ ngx-login-card {
    @apply block w-full max-w-4xl;
 
    &__container {
-      @apply relative flex font-sans;
+      @apply relative flex flex-row flex-wrap font-sans;
       @apply rounded-xl shadow-2xl;
 
-      @apply border border-solid border-gray-200 dark:border-gray-700;
-      @apply bg-white/50 backdrop-blur-xl dark:bg-gray-900/50;
+      @apply border border-solid border-neutral-200 dark:border-neutral-700;
+      @apply bg-white/50 backdrop-blur-xl dark:bg-neutral-800/75;
 
       // Highlighting Shine
       &::before {
@@ -38,7 +38,7 @@ ngx-login-card {
    }
 
    &__section {
-      @apply max-w-lg;
+      @apply basis-full md:basis-1/2;
 
       &:first-child {
          @apply rounded-bl-xl rounded-tl-xl;
@@ -49,17 +49,16 @@ ngx-login-card {
       }
 
       &-login {
-         @apply flex-1 basis-1/2;
-         @apply w-full p-10;
+         @apply p-10;
          @apply min-h-[300px];
       }
 
       &-image {
-         @apply w-full flex-1 basis-1/2;
          @apply bg-[var(--ngx-login-card--primary)] bg-cover bg-center opacity-50;
-         @apply hidden sm:block;
+         @apply hidden md:block;
          @apply min-h-[300px];
          background-image: radial-gradient(circle, rgb(229, 231, 235), var(--ngx-login-card--primary), rgb(229, 231, 235));
+
          background-image: url(https://images.unsplash.com/photo-1469389335181-2198b4caa734?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8bWFjaGluZXx8fHx8fDE2OTgxODgyMDM&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080);
          opacity: 1;
       }
@@ -80,20 +79,20 @@ ngx-login-card {
 
       &-label {
          @apply mb-2 block text-sm;
-         @apply font-medium text-gray-900 dark:text-white;
+         @apply font-medium text-black dark:text-white;
       }
 
       &-input {
          @apply mb-2 block w-full leading-6;
 
-         @apply bg-white dark:bg-[#11191f];
-         @apply border border-gray-300 dark:border-gray-600;
+         @apply bg-white dark:bg-neutral-700;
+         @apply border border-neutral-300 dark:border-neutral-600;
          @apply rounded-md px-3 py-2;
 
          @apply outline-none focus:border-[var(--ngx-login-card--primary)];
          @apply focus:ring-1 focus:ring-[var(--ngx-login-card--primary)];
 
-         @apply disabled:cursor-not-allowed disabled:border-gray-400 disabled:bg-gray-200;
+         @apply disabled:cursor-not-allowed disabled:opacity-50;
       }
 
       &-button {
@@ -111,7 +110,7 @@ ngx-login-card {
          @apply active:opacity-[0.7] active:shadow-none;
          @apply active:ring-1 active:ring-inset active:ring-white active:ring-offset-1;
 
-         @apply disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none;
+         @apply disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 disabled:shadow-none;
       }
    }
 }
