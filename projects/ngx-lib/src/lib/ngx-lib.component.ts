@@ -16,7 +16,7 @@ class TextContent {
    public signInTitle: string = 'Login';
    public usernameOrEmailPlaceholder: string = 'Email';
    public passwordPlaceholder: string = 'Password';
-   public loginButtonText: string = 'Login';
+   public loginButtonText: string = 'Sign In';
    public forgotPasswordText: string = 'Forgot Password?';
    public maintenanceMessage: string = 'Under Maintenance';
 }

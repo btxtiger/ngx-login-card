@@ -15,38 +15,42 @@ ngx-login-card {
 }
 
 .ngx-login-card {
-   --ngx-login-card--primary: rgb(229, 163, 22);
-   --ngx-login-card--primary-shade: rgba(229, 163, 22, 0.5);
+   --ngx-login-card--primary: rgb(101, 163, 13);
+   --ngx-login-card--primary-shade: rgba(101, 163, 13, 0.5);
 
-   @apply relative flex font-sans;
-   @apply w-full max-w-4xl;
+   @apply block w-full max-w-4xl;
 
-   @apply rounded-2xl shadow-2xl;
+   &__container {
+      @apply relative flex font-sans;
+      @apply rounded-xl shadow-2xl;
 
-   @apply border border-solid border-gray-200 dark:border-gray-700;
-   @apply bg-white/50 backdrop-blur-xl dark:bg-gray-900/50;
+      @apply border border-solid border-gray-200 dark:border-gray-700;
+      @apply bg-white/50 backdrop-blur-xl dark:bg-gray-900/50;
 
-   // Highlighting Shine
-   &::before {
-      @apply absolute mx-auto h-[1px] w-11/12;
-      @apply left-0 right-0 top-[-1px];
+      // Highlighting Shine
+      &::before {
+         @apply absolute mx-auto h-[1px] w-11/12;
+         @apply left-0 right-0 top-[-1px];
 
-      content: '';
-      background-image: linear-gradient(to right, rgb(229, 231, 235), var(--ngx-login-card--primary), rgb(229, 231, 235));
+         content: '';
+         background-image: linear-gradient(to right, rgb(229, 231, 235), var(--ngx-login-card--primary), rgb(229, 231, 235));
+      }
    }
 
    &__section {
+      @apply max-w-lg;
+
       &:first-child {
-         @apply rounded-bl-2xl rounded-tl-2xl;
+         @apply rounded-bl-xl rounded-tl-xl;
       }
 
       &:last-child {
-         @apply rounded-br-2xl rounded-tr-2xl;
+         @apply rounded-br-xl rounded-tr-xl;
       }
 
       &-login {
          @apply flex-1 basis-1/2;
-         @apply w-full p-8;
+         @apply w-full p-10;
          @apply min-h-[300px];
       }
 
@@ -56,8 +60,8 @@ ngx-login-card {
          @apply hidden sm:block;
          @apply min-h-[300px];
          background-image: radial-gradient(circle, rgb(229, 231, 235), var(--ngx-login-card--primary), rgb(229, 231, 235));
-         //background-image: url(https://images.unsplash.com/photo-1469389335181-2198b4caa734?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8bWFjaGluZXx8fHx8fDE2OTgxODgyMDM&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080);
-         //opacity: 1;
+         background-image: url(https://images.unsplash.com/photo-1469389335181-2198b4caa734?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8bWFjaGluZXx8fHx8fDE2OTgxODgyMDM&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080);
+         opacity: 1;
       }
    }
 
@@ -93,7 +97,7 @@ ngx-login-card {
       }
 
       &-button {
-         @apply mx-auto w-full font-sans text-xs font-bold uppercase;
+         @apply mx-auto w-full text-xs font-bold uppercase tracking-widest;
 
          @apply rounded-lg border border-transparent;
          @apply bg-[var(--ngx-login-card--primary)] text-white dark:text-black;
@@ -102,7 +106,7 @@ ngx-login-card {
          @apply shadow-md shadow-[var(--ngx-login-card--primary-shade)];
          @apply transition-all duration-200;
 
-         @apply hover:brightness-90 hover:shadow-lg hover:shadow-[var(--ngx-login-card--primary-shade)];
+         @apply hover:shadow-lg hover:shadow-[var(--ngx-login-card--primary-shade)] hover:brightness-90;
 
          @apply active:opacity-[0.7] active:shadow-none;
          @apply active:ring-1 active:ring-inset active:ring-white active:ring-offset-1;
@@ -116,7 +120,9 @@ ngx-login-card {
    --ngx-login-card--primary: rgba(239, 229, 25);
    --ngx-login-card--primary-shade: rgba(239, 229, 25, 0.2);
 
-   &::before {
-      background-image: linear-gradient(to right, rgb(55, 65, 81), var(--ngx-login-card--primary), rgb(55, 65, 81));
+   &__container {
+      &::before {
+         background-image: linear-gradient(to right, rgb(55, 65, 81), var(--ngx-login-card--primary), rgb(55, 65, 81));
+      }
    }
 }
