@@ -1,26 +1,35 @@
 name: Angular Tests with FirefoxHeadless
 
-on: [push, pull_request]
+on: [ push, pull_request ]
 
 jobs:
    build:
       runs-on: ubuntu-latest
       steps:
-         - uses: actions/checkout@v4
+         -  uses: actions/checkout@v4
 
-         - name: Setup Node.js
-           uses: actions/setup-node@v3
-           with:
-              node-version: 'lts/*'
+         -  name: Setup Node.js
+            uses: actions/setup-node@v3
+            with:
+               node-version: 'lts/*'
 
-         - name: Print Firefox version
-           run: firefox --version
+         -  name: Print Firefox version
+            run: firefox --version
 
-         - name: Install dependencies
-           run: npm install
+         -  name: Install dependencies
+            run: npm install
 
-         - name: Build
-           run: npm run build
+         -  name: Build
+            run: npm run build:demo
 
-         - name: Test with FirefoxHeadless
-           run: npm run test:ci
+         -  name: Test with FirefoxHeadless
+            run: npm run test:ci
+
+         -  name: Commit new docs
+            if: github.ref == 'refs/heads/develop'
+            run: |
+               git config --local user.email "action@github.com"
+               git config --local user.name "GitHub Action"
+               git add .
+               git diff-index --quiet HEAD || git commit -m "Automatically built demo" || exit 0
+               git push
