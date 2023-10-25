@@ -28,7 +28,7 @@ ngx-login-card {
 
    // Highlighting Shine
    &::before {
-      @apply absolute mx-auto h-[1px] w-3/4;
+      @apply absolute mx-auto h-[1px] w-11/12;
       @apply left-0 right-0 top-[-1px];
 
       content: '';
