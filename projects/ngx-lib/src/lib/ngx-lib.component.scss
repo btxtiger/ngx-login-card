@@ -88,7 +88,7 @@ ngx-login-card {
 
          @apply bg-white dark:bg-neutral-700;
          @apply border border-neutral-300 dark:border-neutral-600;
-         @apply rounded-md px-3 py-2;
+         @apply shadow-sm focus:shadow rounded-md px-3 py-2;
 
          @apply outline-none focus:border-[var(--ngx-login-card--primary)];
          @apply focus:ring-1 focus:ring-inset focus:ring-[var(--ngx-login-card--primary)];
