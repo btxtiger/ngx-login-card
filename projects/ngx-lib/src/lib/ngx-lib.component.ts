@@ -8,6 +8,7 @@ import {
    OnChanges,
    OnInit,
    Output,
+   SimpleChanges,
    ViewEncapsulation,
 } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
@@ -18,7 +19,7 @@ class TextContent {
    public passwordPlaceholder: string = 'Password';
    public loginButtonText: string = 'Sign In';
    public forgotPasswordText: string = 'Forgot Password?';
-   public maintenanceMessage: string = 'Under Maintenance';
+   public maintenanceMessage: string = '⚠️ Currently under Maintenance';
 }
 
 @Component({
@@ -38,7 +39,7 @@ export class NgxLibComponent implements OnInit, OnChanges {
    public textContent: TextContent = new TextContent();
 
    @Input()
-   public maintenanceMode?: boolean;
+   public isMaintenance?: boolean;
 
    @Input()
    public avatarUrl?: string;
@@ -53,7 +54,7 @@ export class NgxLibComponent implements OnInit, OnChanges {
    public oauthProviders?: string[];
 
    @Input()
-   public showForgotPassword?: boolean;
+   public showForgotPassword?: boolean | '';
 
    @Input()
    public config: any;
@@ -75,8 +76,9 @@ export class NgxLibComponent implements OnInit, OnChanges {
       });
    }
 
-   ngOnChanges(): void {
+   ngOnChanges(changes: SimpleChanges): void {
       // Handle changes to input properties
+      console.warn('changes', changes);
    }
 
    /** == Undocumented Function == */

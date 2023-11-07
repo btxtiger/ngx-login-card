@@ -18,12 +18,14 @@ ngx-login-card {
 .ngx-login-card {
    --ngx-login-card--primary: rgb(101, 163, 13);
    --ngx-login-card--primary-shade: rgba(101, 163, 13, 0.5);
+   --ngx-login-card--radius: 0.75rem;
 
    @apply block w-full max-w-4xl;
 
    &__container {
       @apply relative flex flex-row flex-wrap font-sans;
-      @apply rounded-xl shadow-2xl;
+      @apply shadow-2xl;
+      border-radius: var(--ngx-login-card--radius);
 
       @apply border border-solid border-neutral-200 dark:border-neutral-700;
       @apply bg-white/50 backdrop-blur-xl dark:bg-neutral-800/75;
@@ -42,15 +44,17 @@ ngx-login-card {
       @apply basis-full md:basis-1/2;
 
       &:first-child {
-         @apply rounded-bl-xl rounded-tl-xl;
+         border-bottom-left-radius: var(--ngx-login-card--radius);
+         border-top-left-radius: var(--ngx-login-card--radius);
       }
 
       &:last-child {
-         @apply rounded-br-xl rounded-tr-xl;
+         border-bottom-right-radius: var(--ngx-login-card--radius);
+         border-top-right-radius: var(--ngx-login-card--radius);
       }
 
       &-login {
-         @apply p-10;
+         @apply relative p-10;
          @apply min-h-[300px];
       }
 
@@ -78,6 +82,18 @@ ngx-login-card {
    &__form-field {
       @apply mb-6 text-left;
 
+      &-user {
+         //
+      }
+
+      &-password {
+         //
+      }
+
+      &-signin {
+         //@apply mt-12;
+      }
+
       &-label {
          @apply mb-2 block text-sm;
          @apply font-medium text-black dark:text-white;
@@ -88,9 +104,10 @@ ngx-login-card {
 
          @apply bg-white dark:bg-neutral-700;
          @apply border border-neutral-300 dark:border-neutral-600;
-         @apply shadow-sm focus:shadow rounded-md px-3 py-2;
+         @apply px-3 py-2 shadow-sm focus:shadow;
+         border-radius: calc(var(--ngx-login-card--radius) / 2);
 
-         @apply outline-none focus:outline-none focus:border-[var(--ngx-login-card--primary)];
+         @apply outline-none focus:border-[var(--ngx-login-card--primary)] focus:outline-none;
          @apply focus:ring-1 focus:ring-inset focus:ring-[var(--ngx-login-card--primary)];
 
          @apply disabled:cursor-not-allowed disabled:opacity-50;
@@ -99,7 +116,8 @@ ngx-login-card {
       &-button {
          @apply mx-auto w-full text-xs font-bold uppercase tracking-widest;
 
-         @apply rounded-lg border border-transparent;
+         @apply border border-transparent;
+         border-radius: calc(var(--ngx-login-card--radius) / 2);
          @apply bg-[var(--ngx-login-card--primary)] text-white dark:text-black;
          @apply px-4 py-2.5;
 
@@ -113,6 +131,22 @@ ngx-login-card {
 
          @apply disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 disabled:shadow-none;
       }
+   }
+
+   &__forgot-password {
+      @apply mb-6 block text-right text-xs;
+      @apply font-medium text-gray-600 hover:text-[var(--ngx-login-card--primary)] dark:text-gray-400 dark:hover:text-[var(--ngx-login-card--primary)];
+      @apply transition-all duration-300 cursor-pointer;
+      @apply active:opacity-[0.7] hover:underline;
+   }
+
+   &__maintenance {
+      @apply absolute inset-0 flex flex-col items-center justify-center;
+      @apply text-center font-medium text-black dark:text-white;
+      @apply bg-white/5 dark:bg-neutral-800/5;
+      @apply z-10;
+      border-radius: var(--ngx-login-card--radius);
+      backdrop-filter: blur(8px);
    }
 }
 

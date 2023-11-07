@@ -21,6 +21,7 @@ import { NgxLibComponent } from '../../projects/ngx-lib/src/lib/ngx-lib.componen
       MatButtonModule,
       MatToolbarModule,
       MatIconModule,
+      NgxLibComponent,
    ],
    providers: [],
    bootstrap: [AppComponent],
