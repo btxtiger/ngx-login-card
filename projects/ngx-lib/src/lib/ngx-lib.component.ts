@@ -16,7 +16,7 @@ import { FormBuilder,FormGroup,FormsModule,ReactiveFormsModule } from '@angular/
 import { MatRippleModule } from '@angular/material/core';
 import { NgxMdIconModule } from "ngx-md-icon";
 
-class TextContent {
+class NgxLoginCardTextContent {
    public signInTitle: string = 'Login';
    public usernameOrEmailPlaceholder: string = 'Email';
    public passwordPlaceholder: string = 'Password';
@@ -44,7 +44,7 @@ export class NgxLibComponent implements OnInit, AfterViewInit, OnChanges {
    public class: string = 'ngx-login-card';
 
    @Input()
-   public textContent: TextContent = new TextContent();
+   public textContent: NgxLoginCardTextContent = new NgxLoginCardTextContent();
 
    @Input()
    public isMaintenance?: boolean;
