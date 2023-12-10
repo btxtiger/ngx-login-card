@@ -153,6 +153,7 @@ ngx-login-card {
          width: 40px;
          height: 40px;
          @apply inline-flex items-center justify-center cursor-pointer rounded-full;
+         @apply hover:bg-black/5 dark:hover:bg-white/5 transition-all;
       }
    }
 
