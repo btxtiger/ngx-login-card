@@ -1,37 +1,45 @@
-import { NgClass, NgForOf, NgIf, NgStyle } from '@angular/common';
+import { NgClass,NgForOf,NgIf,NgStyle } from '@angular/common';
 import {
-   ChangeDetectionStrategy,
-   Component,
-   EventEmitter,
-   HostBinding,
-   Input,
-   OnChanges,
-   OnInit,
-   Output,
-   SimpleChanges,
-   ViewEncapsulation,
+AfterViewInit,
+ChangeDetectionStrategy,
+Component,ElementRef,
+EventEmitter,
+HostBinding,
+Input,
+OnChanges,
+OnInit,
+Output,
+SimpleChanges,ViewChild,
+ViewEncapsulation,
 } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder,FormGroup,FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { MatRippleModule } from '@angular/material/core';
+import { NgxMdIconModule } from "ngx-md-icon";
 
 class TextContent {
    public signInTitle: string = 'Login';
    public usernameOrEmailPlaceholder: string = 'Email';
    public passwordPlaceholder: string = 'Password';
    public loginButtonText: string = 'Sign In';
-   public forgotPasswordText: string = 'Forgot Password?';
    public maintenanceMessage: string = '⚠️ Currently under Maintenance';
+   public forgotPasswordText: string = 'Forgot Password?';
+   public forgotPasswordHint: string = 'Enter the email address linked to your account.';
+   public forgotPasswordHintPlaceholder: string = 'Email address';
+   public forgotPasswordButtonText: string = 'Send recovery link';
+   public forgotPasswordTitle: string = 'Password Recovery';
+   public forgotPasswordError: string = 'Invalid email address';
 }
 
 @Component({
    selector: 'ngx-login-card',
    templateUrl: './ngx-lib.component.html',
    styleUrls: ['./ngx-lib.component.scss'],
-   imports: [NgIf, NgClass, ReactiveFormsModule, NgForOf, NgStyle],
+   imports: [NgIf, NgClass, ReactiveFormsModule, NgForOf, NgStyle, MatRippleModule, NgxMdIconModule, FormsModule],
    changeDetection: ChangeDetectionStrategy.OnPush,
    encapsulation: ViewEncapsulation.None,
    standalone: true,
 })
-export class NgxLibComponent implements OnInit, OnChanges {
+export class NgxLibComponent implements OnInit, AfterViewInit, OnChanges {
    @HostBinding()
    public class: string = 'ngx-login-card';
 
@@ -55,6 +63,7 @@ export class NgxLibComponent implements OnInit, OnChanges {
 
    @Input()
    public showForgotPassword?: boolean | '';
+   public isForgotPasswordActive: boolean = true;
 
    @Input()
    public config: any;
@@ -63,9 +72,14 @@ export class NgxLibComponent implements OnInit, OnChanges {
    public login = new EventEmitter<any>();
 
    @Output()
-   public forgotPasswordClick = new EventEmitter<void>();
+   public forgotPasswordEvent = new EventEmitter<string>();
+
+   @ViewChild('sectionLogin', { static: true })
+   public sectionLoginElem!: ElementRef;
 
    public loginForm!: FormGroup;
+   public hasForgotPasswordError: boolean = false;
+   public forgotPasswordEmailInput?: string;
 
    constructor(private fb: FormBuilder) {}
 
@@ -74,6 +88,12 @@ export class NgxLibComponent implements OnInit, OnChanges {
          usernameOrEmail: [''],
          password: [''],
       });
+   }
+
+   ngAfterViewInit(): void {
+      const size = this.sectionLoginElem.nativeElement.offsetHeight;
+      this.sectionLoginElem.nativeElement.style.height = `${size}px`;
+      console.warn('size', size);
    }
 
    ngOnChanges(changes: SimpleChanges): void {
@@ -88,8 +108,16 @@ export class NgxLibComponent implements OnInit, OnChanges {
       }
    }
 
-   /** == Undocumented Function == */
-   public onForgotPasswordClick(): void {
-      this.forgotPasswordClick.emit();
+   /**
+    * Submit the forgot password form
+    */
+   public submitResetPassword(): void {
+      if (!this.forgotPasswordEmailInput?.match(/^\S+@\S+\.\S+$/)) {
+         this.hasForgotPasswordError = true;
+         return;
+      }
+
+      this.hasForgotPasswordError = false;
+      this.forgotPasswordEvent.emit(this.forgotPasswordEmailInput);
    }
 }

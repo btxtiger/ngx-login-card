@@ -101,6 +101,14 @@
          "root": "projects/ngx-lib",
          "sourceRoot": "projects/ngx-lib/src",
          "prefix": "lib",
+         "schematics": {
+            "@schematics/angular:component": {
+               "style": "scss",
+               "standalone": true,
+               "viewEncapsulation": "None",
+               "changeDetection": "OnPush"
+            }
+         },
          "architect": {
             "build": {
                "builder": "@angular-devkit/build-angular:ng-packagr",

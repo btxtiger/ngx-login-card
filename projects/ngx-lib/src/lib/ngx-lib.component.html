@@ -1,7 +1,7 @@
 <!-- Insert the loading spinner here -->
 
 <div class="ngx-login-card__container">
-   <div class="ngx-login-card__section ngx-login-card__section-login">
+   <div class="ngx-login-card__section ngx-login-card__section-login" #sectionLogin>
       <!-- Login section content -->
 
       <div class="ngx-login-card__maintenance" *ngIf="isMaintenance">
@@ -16,33 +16,71 @@
          {{ textContent.signInTitle }}
       </div>
 
-      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-         <div class="ngx-login-card__form-field ngx-login-card__form-field-user">
-            <label for="name-input" class="ngx-login-card__form-field-label">
-               {{ textContent.usernameOrEmailPlaceholder }}
+      <div class="ngx-login-card__login-form" *ngIf="!isForgotPasswordActive">
+         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="ngx-login-card__form-field ngx-login-card__form-field-user">
+               <label for="name-input" class="ngx-login-card__form-field-label">
+                  {{ textContent.usernameOrEmailPlaceholder }}
+               </label>
+               <input type="text" id="name-input" class="ngx-login-card__form-field-input" />
+            </div>
+
+            <div class="ngx-login-card__form-field ngx-login-card__form-field-password">
+               <label for="password-input" class="ngx-login-card__form-field-label">
+                  {{ textContent.passwordPlaceholder }}
+               </label>
+               <input type="password" id="password-input" class="ngx-login-card__form-field-input" />
+            </div>
+
+            <div class="ngx-login-card__forgot-password" *ngIf="showForgotPassword || showForgotPassword === ''">
+               <a (click)="isForgotPasswordActive = true" class="ngx-login-card__forgot-password-link">
+                  {{ textContent.forgotPasswordText }}
+               </a>
+            </div>
+
+            <div class="ngx-login-card__form-field ngx-login-card__form-field-signin">
+               <button class="ngx-login-card__form-field-button">
+                  {{ textContent.loginButtonText }}
+               </button>
+            </div>
+         </form>
+
+      </div>
+
+      <div class="ngx-login-card__forgot-password-form" *ngIf="isForgotPasswordActive">
+         <div class="ngx-login-card__forgot-password-form-title">
+            <button matRipple class="ngx-login-card__forgot-password-back-button" (click)="isForgotPasswordActive = false">
+               <md-icon icon="M10.05 16.94V12.94H18.97L19 10.93H10.05V6.94L5.05 11.94Z" />
+            </button>
+            <div>
+               {{ textContent.forgotPasswordTitle }}
+            </div>
+         </div>
+
+         <div class="ngx-login-card__forgot-password-form-hint">
+            {{ textContent.forgotPasswordHint }}
+         </div>
+
+         <div class="ngx-login-card__form-field">
+            <label for="forgot-password-input" class="ngx-login-card__form-field-label">
+               {{ textContent.forgotPasswordHintPlaceholder }}
             </label>
-            <input type="text" id="name-input" class="ngx-login-card__form-field-input" />
+            <input class="ngx-login-card__form-field-input"
+                   [(ngModel)]="forgotPasswordEmailInput"
+                   type="email" id="forgot-password-input" />
+            <div class="ngx-login-card__form-field-error" *ngIf="hasForgotPasswordError">
+               {{ textContent.forgotPasswordError }}
+            </div>
          </div>
 
-         <div class="ngx-login-card__form-field ngx-login-card__form-field-password">
-            <label for="password-input" class="ngx-login-card__form-field-label">
-               {{ textContent.passwordPlaceholder }}
-            </label>
-            <input type="password" id="password-input" class="ngx-login-card__form-field-input" />
-         </div>
-
-         <div class="ngx-login-card__forgot-password" *ngIf="showForgotPassword || showForgotPassword === ''">
-            <a (click)="forgotPasswordClick.emit()" class="ngx-login-card__forgot-password-link">
-               {{ textContent.forgotPasswordText }}
-            </a>
-         </div>
-
-         <div class="ngx-login-card__form-field ngx-login-card__form-field-signin">
-            <button class="ngx-login-card__form-field-button">
-               {{ textContent.loginButtonText }}
+         <div class="ngx-login-card__form-field">
+            <button class="ngx-login-card__form-field-button" (click)="submitResetPassword()">
+               {{ textContent.forgotPasswordButtonText }}
             </button>
          </div>
-      </form>
+      </div>
+
+
    </div>
 
    <div class="ngx-login-card__section ngx-login-card__section-image">

@@ -15,7 +15,9 @@
    "author": "Jonas Gnioui <btxtiger@icloud.com>",
    "sideEffects": false,
    "dependencies": {
-      "tslib": "^2.3.0"
+      "tslib": "^2.3.0",
+      "@angular/material": "15 - 100",
+      "ngx-md-icon": "^1.1.0"
    },
    "peerDependencies": {
       "@angular/common": "15 - 100",
