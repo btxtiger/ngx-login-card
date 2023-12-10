@@ -8,9 +8,7 @@
          {{ textContent.maintenanceMessage }}
       </div>
 
-      <div class="ngx-login-card__form-branding">
-         Branding
-      </div>
+      <div class="ngx-login-card__form-branding">Branding</div>
 
       <div class="ngx-login-card__form-title">
          {{ textContent.signInTitle }}
@@ -45,7 +43,10 @@
       </form>
    </div>
 
-   <div class="ngx-login-card__section ngx-login-card__section-image">
+   <div
+      class="ngx-login-card__section ngx-login-card__section-image"
+      *ngIf="showImage || showImage === ''"
+      [ngStyle]="{ backgroundImage: 'url(' + imageUrl + ')' }">
       <!-- Image section content -->
    </div>
 </div>

@@ -57,6 +57,9 @@ export class NgxLibComponent implements OnInit, OnChanges {
    public showForgotPassword?: boolean | '';
 
    @Input()
+   public showImage?: boolean | '';
+
+   @Input()
    public config: any;
 
    @Output()
