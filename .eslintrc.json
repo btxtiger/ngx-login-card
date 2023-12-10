@@ -38,16 +38,9 @@
                }
             ],
             "@typescript-eslint/explicit-function-return-type": [
-               "error", {
-                  "allowExpressions": true
-               }
-            ],
-            "@typescript-eslint/padding-line-between-statements": [
                "error",
                {
-                  "blankLine": "always",
-                  "prev": "*",
-                  "next": "return"
+                  "allowExpressions": true
                }
             ],
             "jsdoc/require-jsdoc": [
