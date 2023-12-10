@@ -42,20 +42,6 @@
                   "allowExpressions": true
                }
             ],
-            "@typescript-eslint/explicit-member-accessibility": [
-               "error",
-               {
-                  "accessibility": "explicit",
-                  "ignoredMethodNames": ["ngOnInit", "ngOnChanges", "ngOnDestroy", "ngAfterViewInit"],
-                  "overrides": {
-                     "constructors": "no-public",
-                     "accessors": "explicit",
-                     "methods": "explicit",
-                     "properties": "explicit",
-                     "parameterProperties": "explicit"
-                  }
-               }
-            ],
             "@typescript-eslint/padding-line-between-statements": [
                "error",
                {
