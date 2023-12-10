@@ -94,6 +94,9 @@ THE SOFTWARE.
 ngx-login-card
 MIT
 
+ngx-md-icon
+MIT
+
 normalize.css
 MIT
 # The MIT License (MIT)
