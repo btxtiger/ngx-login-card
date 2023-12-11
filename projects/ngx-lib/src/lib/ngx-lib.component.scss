@@ -62,7 +62,6 @@ ngx-login-card {
          @apply bg-[var(--ngx-login-card--primary)] bg-cover bg-center opacity-50;
          @apply hidden md:block;
          @apply min-h-[300px];
-         background-image: radial-gradient(circle, rgb(229, 231, 235), var(--ngx-login-card--primary), rgb(229, 231, 235));
          opacity: 1;
       }
    }
@@ -153,7 +152,7 @@ ngx-login-card {
          width: 40px;
          height: 40px;
          @apply inline-flex items-center justify-center cursor-pointer rounded-full;
-         @apply hover:bg-black/5 dark:hover:bg-white/5 transition-all;
+         @apply bg-black/5 dark:bg-white/5 transition-all;
       }
    }
 

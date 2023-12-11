@@ -20,14 +20,14 @@
                <label for="name-input" class="ngx-login-card__form-field-label">
                   {{ textContent.usernameOrEmailPlaceholder }}
                </label>
-               <input type="text" id="name-input" class="ngx-login-card__form-field-input" />
+               <input type="text" id="name-input" placeholder="Email Address" class="ngx-login-card__form-field-input" />
             </div>
 
             <div class="ngx-login-card__form-field ngx-login-card__form-field-password">
                <label for="password-input" class="ngx-login-card__form-field-label">
                   {{ textContent.passwordPlaceholder }}
                </label>
-               <input type="password" id="password-input" class="ngx-login-card__form-field-input" />
+               <input type="password" placeholder="Password" id="password-input" class="ngx-login-card__form-field-input" />
             </div>
 
             <div class="ngx-login-card__forgot-password" *ngIf="showForgotPassword || showForgotPassword === ''">
